@@ -1,0 +1,25 @@
+.toggle-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #444;
+  color: white;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+body.light .toggle-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+body.dark .toggle-btn {
+  background-color: #222;
+  color: #f0f0f0;
+}
+
+.toggle-btn:hover {
+  opacity: 0.8;
+}

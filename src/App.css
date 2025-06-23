@@ -1,38 +1,319 @@
-.App {
+:root {
+  --primary: #6c63ff;
+  --primary-dark: #5548c8;
+  --gradient-light: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  --gradient-dark: linear-gradient(to right, #1f1c2c, #928dab);
+  --text-light: #222;
+  --text-dark: #eee;
+  --card-light: #e7dcdc;
+  --card-dark: #121212;
+  --border-light: #ccc;
+  --border-dark: #444;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --transition: 0.4s ease;
+  --radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color var(--transition), color var(--transition);
+  background-size: cover;
+
+}
+
+body.light {
+  background: linear-gradient(to right, #8c36c5, #b54747, #c18634);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+body.dark {
+  background: linear-gradient(120deg, #1f1c2c, #928dab, #2c3e50);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Header & Navigation */
+.head {
+  font-size: 2.8rem;
   text-align: center;
+  padding: 1rem 0 0.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.head{
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.head2 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.head2 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+
+
+.slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.slide a {
+  text-decoration: none;
+  font-weight: 600;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background-color var(--transition);
+  font-size: large;
+}
+
+.slide a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Toggle */
+.toggle-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.toggle-btn:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.5);
+}
+
+/* Page Containers */
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Home Page */
+.home-header {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+  animation: fadeInDown 1s ease;
+}
+
+.nothing {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  color: #3722c1;
+  animation: fadeInDown 1s ease;
+}
+
+.empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 3rem 0;
+  text-align: center;
+  color: #ccc;
+}
+
+/* Blog Card Styles */
+
+.blog-card {
+  background-color: var(--card-light);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: fadeInUp 0.8s ease;
+}
+
+body.dark .blog-card {
+  background-color: var(--card-dark);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+}
+
+.blog-card p {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hero small {
+  font-style: italic;
+  color: rgb(199, 190, 190);
+}
+
+
+.delete-btn {
+  margin-right: 1rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  background-color: var(--primary);
   color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition);
 }
 
-.App-link {
-  color: #61dafb;
+.delete-btn:hover {
+  background-color: crimson;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Center the form content inside the container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Label should align with the input */
+.l1,.l2 {
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: large;
+
+}
+
+/* Inputs and textarea styling */
+.input,.text{
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  outline: none;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+/* Center the submit button */
+.btn1{
+  margin-top: 1rem;
+  align-self: center;
+  width: 150px;
+  text-align: center;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.btn1:hover {
+  background-color: var(--primary-dark);
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
   }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-card {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .home-header {
+    font-size: 2rem;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
